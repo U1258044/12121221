@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>尖山純米手工水粉 | 百年風土傳承 - 專為竹科科技家庭打造的純淨無添加健康伴手禮</title>
+    <meta name="description" content="苗栗頭份尖山大橋南側百年手工水粉，堅持100%在來米、中港溪九降風日曬自然慢乾、無任何化學添加物。溫和好消化、不易胃脹氣，搭配精緻文創聯名禮盒，是您親子日常健康與商務送禮的體面首選。">
+    <meta name="keywords" content="尖山米粉, 頭份米粉, 水粉, 苗栗農特產, 松茂米粉, 竹科伴手禮, 無添加米粉, 胃不適米粉, 四月八節慶, 溫慢客家">
+    
+    <meta property="og:title" content="尖山純米手工水粉 | 百年風土傳承 - 專為竹科家庭打造的純淨健康禮盒">
+    <meta property="og:description" content="堅持百年「水粉」工法與天然九降風慢乾，100%在來米無添加，告別化學修飾澱粉引起的胃脹不適。配合 AI 智慧灶腳與 O2O 祈福體驗。">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1612927601601-6638404737ce?auto=format&fit=crop&w=1200&h=630&q=80">
+    <meta property="og:url" content="https://yourusername.github.io/jianshan-ricenoodles/">
+    <meta property="og:type" content="website">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer ||;
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        // gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@500;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'hakka-navy': '#11223f',       
+                        'hakka-blue': '#1c355e',       
+                        'sun-amber': '#d97706',        
+                        'flax-gray': '#f4f1ea',        
+                        'warm-dark': '#2e2b2a',        
+                        'rice-white': '#fdfcf7'        
+                    },
+                    fontFamily: {
+                        'sans':,
+                        'serif':
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-rice-white text-warm-dark selection:bg-sun-amber selection:text-white font-sans">
+
+    <div id="toast-container" class="fixed top-24 right-4 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <nav class="fixed w-full z-40 bg-rice-white/80 backdrop-blur-md border-b border-flax-gray/60 transition-all duration-300" id="main-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center gap-3 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                    <span class="text-3xl filter drop-shadow">🌾</span>
+                    <div class="flex flex-col">
+                        <span class="font-serif font-black text-xl tracking-widest text-hakka-blue">頭份尖山米粉</span>
+                        <span class="text-[10px] text-sun-amber font-bold tracking-wider uppercase">Jianshan Rice Noodles</span>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#wind-monitor" class="text-sm font-medium text-warm-dark/80 hover:text-sun-amber transition-colors">風土監控</a>
+                    <a href="#story-section" class="text-sm font-medium text-warm-dark/80 hover:text-sun-amber transition-colors">百年故事</a>
+                    <a href="#comparison-section" class="text-sm font-medium text-warm-dark/80 hover:text-sun-amber transition-colors">水粉優勢</a>
+                    <a href="#recipe-section" class="text-sm font-medium text-warm-dark/80 hover:text-sun-amber transition-colors">AI智慧食譜</a>
+                    <a href="#community-section" class="text-sm font-medium text-warm-dark/80 hover:text-sun-amber transition-colors">鄰里社群</a>
+                    <a href="#o2o-section" class="text-sm font-medium text-warm-dark/80 hover:text-sun-amber transition-colors">四月八預約</a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button onclick="scrollToSection('checkout-section')" class="relative p-2 text-hakka-blue hover:text-sun-amber transition-colors" aria-label="購物車" id="cart-nav-btn">
+                        <span class="text-2xl">🛒</span>
+                        <span id="cart-count" class="absolute -top-1 -right-1 bg-sun-amber text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center scale-90">0</span>
+                    </button>
+                    <button onclick="scrollToSection('product-grid')" class="bg-hakka-blue text-white text-xs sm:text-sm px-5 py-2.5 rounded-full font-bold shadow-md hover:bg-opacity-95 transform hover:-translate-y-0.5 transition-all">
+                        線上選購
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative pt-28 pb-20 md:pt-36 md:pb-32 bg-gradient-to-br from-rice-white via-[#f9f7f0] to-[#f4f1ea] overflow-hidden">
+        <div class="absolute -top-40 -right-40 w-96 h-96 bg-sun-amber/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="w-full lg:w-1/2 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-sun-amber/10 rounded-full border border-sun-amber/20 text-sun-amber text-xs sm:text-sm font-bold tracking-wider">
+                        ⭐ 苗栗頭份 ． 100%手工水煮粗米粉 ． 九降風限定
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-black text-hakka-blue leading-tight tracking-wide">
+                        用心的米粉，<br class="hidden sm:inline">
+                        <span class="text-sun-amber relative">暖你的生活</span>
+                    </h1>
+                    <p class="font-serif italic text-lg sm:text-xl text-hakka-navy/80 font-medium">
+                        「在尖山，找回天天富足的滋味。」
+                    </p>
+                    <p class="text-base sm:text-lg text-warm-dark/80 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                        為高壓、重視食安的竹科家庭量身打造。我們遵循百年「水粉」工法，歷經滾水熟煮、中港溪九降風慢乾。純米無添加、好消化不易脹氣，溫慢呵護您與孩子敏感的胃。
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+                        <button onclick="scrollToSection('product-grid')" class="bg-sun-amber text-white px-8 py-4 rounded-xl text-base font-bold shadow-lg hover:shadow-xl hover:bg-amber-600 transform hover:-translate-y-0.5 transition-all">
+                            🛍️ 立即免註冊購買
+                        </button>
+                        <button onclick="scrollToSection('recipe-section')" class="bg-white border-2 border-hakka-blue text-hakka-blue px-8 py-4 rounded-xl text-base font-bold hover:bg-hakka-blue hover:text-white transition-all">
+                            👵 找尋阿婆今晚食譜
+                        </button>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2 flex justify-center relative">
+                    <div class="relative w-full max-w-md">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-sun-amber/20 to-hakka-blue/20 rounded-3xl transform rotate-3 scale-105 filter blur-lg opacity-60"></div>
+                        <div class="relative bg-white border border-flax-gray rounded-3xl shadow-xl overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1612927601601-6638404737ce?auto=format&fit=crop&w=800&q=80" alt="頭份尖山純米手工水粉湯料理" class="w-full h-80 object-cover">
+                            <div class="p-6">
+                                <h3 class="font-serif font-bold text-xl text-hakka-blue">傳統純米手工水粉湯</h3>
+                                <p class="text-xs text-warm-dark/60 mt-1">「這不只是一餐主食，更是中港溪、九降風與時間在廚房裡演奏的溫慢民謠。」</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="wind-monitor" class="py-16 bg-white border-y border-flax-gray/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-xs font-bold text-sun-amber tracking-widest uppercase">Honesty Immersion ． 誠信沉浸</span>
+                <h2 class="text-3xl font-serif font-bold text-hakka-navy mt-1">尖山風土即時數據監控</h2>
+                <p class="text-sm text-warm-dark/60 mt-2">
+                    我們公開每一批米粉製程中的大氣數據，讓「風與烈日」的足跡誠實呈現。
+                </p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="bg-rice-white border border-flax-gray p-6 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-xs font-black tracking-widest text-hakka-blue uppercase">現場即時遙測</span>
+                            <span class="inline-block w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
+                        </div>
+                        <h3 class="font-serif font-bold text-lg text-hakka-blue">頭份尖山日曬場</h3>
+                        <p class="text-[10px] text-warm-dark/40 tracking-wider">COORDINATES: 24.6617° N, 120.8932° E</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 my-6">
+                        <div class="p-4 bg-white border border-flax-gray rounded-xl">
+                            <span class="text-xs text-warm-dark/40 font-medium block">即時九降風速</span>
+                            <span class="text-2xl font-black text-hakka-blue tracking-tight" id="real-wind">6.8 m/s</span>
+                            <span class="text-[9px] text-green-600 block font-semibold mt-1">💨 適宜風乾</span>
+                        </div>
+                        <div class="p-4 bg-white border border-flax-gray rounded-xl">
+                            <span class="text-xs text-warm-dark/40 font-medium block">大氣相對濕度</span>
+                            <span class="text-2xl font-black text-hakka-blue tracking-tight" id="real-humidity">52 %</span>
+                            <span class="text-[9px] text-green-600 block font-semibold mt-1">💧 乾燥度優良</span>
+                        </div>
+                    </div>
+                    <p class="text-[10px] text-warm-dark/40 text-center">數據每 10 分鐘自動更新一次</p>
+                </div>
+                <div class="bg-rice-white border border-flax-gray p-6 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-serif font-bold text-lg text-hakka-blue mb-2">產品履歷製程回溯</h3>
+                        <p class="text-xs text-warm-dark/60">
+                            您買的米粉是在哪一天的氣候下曬乾的？輸入您包裝背面的批號即可回溯製程：
+                        </p>
+                    </div>
+                    <div class="my-6 space-y-3">
+                        <div class="flex gap-2">
+                            <input type="text" id="lot-input" placeholder="請輸入產品批號 (例: LOT-20260601)" class="flex-1 px-4 py-2 border border-flax-gray rounded-xl bg-white text-sm focus:outline-none">
+                            <button onclick="queryLotData()" class="bg-hakka-blue text-white px-4 py-2 rounded-xl text-xs font-bold hover:bg-opacity-95">查詢</button>
+                        </div>
+                        <div class="text-center">
+                            <span class="text-[10px] text-warm-dark/40">示範批號：</span>
+                            <button onclick="fillLotSample('LOT-20260601')" class="text-[10px] text-sun-amber font-bold underline">LOT-20260601</button> / 
+                            <button onclick="fillLotSample('LOT-20260604')" class="text-[10px] text-sun-amber font-bold underline">LOT-20260604</button>
+                        </div>
+                    </div>
+                    <div id="lot-result" class="p-4 bg-white border border-flax-gray rounded-xl flex-1 flex flex-col justify-center">
+                        <p class="text-xs text-warm-dark/40 text-center">請於上方欄位鍵入批號...</p>
+                    </div>
+                </div>
+                <div class="bg-rice-white border border-flax-gray p-6 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <span class="text-[10px] text-sun-amber font-bold tracking-widest uppercase">自然的烘焙沒有捷徑</span>
+                        <h3 class="font-serif font-bold text-lg text-hakka-blue mt-1 mb-3">為什麼要公開日照數據？</h3>
+                        <p class="text-xs text-warm-dark/80 leading-relaxed">
+                            傳統快速烘箱會破壞米澱粉的完整排列，使得米粉煮湯易斷、吃完易脹氣。我們堅持中港溪出海口的九降風乾，搭配頭份充足的日曬，帶走米粉體內最核心的水分子，此為<strong>「風水自然熟化」</strong>，也是純米好消化的底氣！
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-flax-gray/80 flex items-center justify-between text-xs text-hakka-blue font-bold">
+                        <span>🌱 100% 在來米保證</span>
+                        <span>SGS 零農藥殘留 🧪</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="story-section" class="py-20 bg-[#fdfcf7] relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-12 items-center">
+                <div class="w-full lg:w-1/2 space-y-6">
+                    <span class="text-xs font-bold text-sun-amber tracking-widest uppercase">Local Heritage ． 地方風土</span>
+                    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-hakka-navy tracking-tight leading-tight">
+                        吹拂過百年客庄的九降風，<br>
+                        凝結在每一縷米香裡。
+                    </h2>
+                    <div class="text-sm sm:text-base text-warm-dark/80 leading-relaxed space-y-4">
+                        <p>
+                            日治時期，頭份福德街、平安街一帶的米粉廠林立，多達三十餘家。當時的商人運往南北，成為全省爭相搶購的頂級米食。
+                        </p>
+                        <p>
+                            不同於新竹將米粉條直接蒸熟的<strong>「炊粉」</strong>，頭份尖山傳承的是更加費時的<strong>「水粉」</strong>工法——將米粉條放入滾水中大火煮熟，再快速撈起放入冷水中定型，最後送到中港溪畔由乾冷的九降風自然風乾。
+                        </p>
+                    </div>
+                    <blockquote class="border-l-4 border-sun-amber pl-4 py-1 italic text-xs sm:text-sm text-warm-dark/70 font-serif">
+                        「當年四月八迎庄賽花燈，家家戶戶辦桌。桌上一定會有一大鍋冒著熱氣的香菇肉絲米粉湯。那一夜，全庄的平安與富足，都在暖洋洋的湯碗裡了。」
+                    </blockquote>
+                </div>
+                <div class="w-full lg:w-1/2">
+                    <div class="relative rounded-3xl overflow-hidden shadow-xl border border-flax-gray">
+                        <img src="https://images.unsplash.com/photo-1569562211093-4ed0d0758f12?auto=format&fit=crop&w=800&q=80" alt="尖山米粉百年松茂傳統工藝傳承" class="w-full h-96 object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+                            <p class="text-white text-sm font-serif">凌晨兩點 the temperature: 松茂老店匠人手作慢乾工藝</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="comparison-section" class="py-20 bg-flax-gray/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="w-full lg:w-1/2 space-y-6">
+                    <span class="text-xs font-bold text-sun-amber tracking-widest uppercase">Science of Food ． 數據說服</span>
+                    <h2 class="text-3xl font-serif font-bold text-hakka-navy">胃與口感的理性判斷</h2>
+                    <p class="text-sm text-warm-dark/70">
+                        重視生活品質與健康的科技新貴，需要的不只是美味，更是無負擔的安心數據。我們多維度分析「尖山純米手工水粉」與「市售混修飾澱粉炊粉」：
+                    </p>
+                    <div class="space-y-4 pt-4">
+                        <div class="flex items-start gap-3 p-4 bg-white border border-flax-gray rounded-2xl shadow-sm">
+                            <span class="text-2xl mt-1">🥦</span>
+                            <div>
+                                <h4 class="font-serif font-bold text-hakka-blue">好消化不易脹氣（消化值：10/10）</h4>
+                                <p class="text-xs text-warm-dark/60 mt-0.5">100% 採用在來米磨漿，不含化學修飾澱粉或防腐劑，徹底告別吃完胃酸胃痛的噩夢。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 p-4 bg-white border border-flax-gray rounded-2xl shadow-sm">
+                            <span class="text-2xl mt-1">🍜</span>
+                            <div>
+                                <h4 class="font-serif font-bold text-hakka-blue">驚人的湯汁吸附力（吸湯度：9/10）</h4>
+                                <p class="text-xs text-warm-dark/60 mt-0.5">水煮工法在條體表面留下無數天然微小孔隙，下鍋後能牢牢咬住雞湯或排骨湯，入口多汁飽滿。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2 flex flex-col items-center">
+                    <div class="bg-white p-6 rounded-3xl border border-flax-gray shadow-md w-full max-w-md">
+                        <h4 class="text-center font-serif font-bold text-hakka-blue mb-4">米粉特性科學維度對比</h4>
+                        <div class="chart-container">
+                            <canvas id="comparisonRadarChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="recipe-section" class="py-20 bg-hakka-blue text-white relative">
+        <div class="absolute inset-0 bg-opacity-20 bg-[radial-gradient(#d97706_1px,transparent_1px)][background-size:16px_16px] pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs font-bold text-sun-amber tracking-widest uppercase">Convenience Immersion ． 便利沉浸</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white mt-1">阿婆的 AI 智慧灶腳</h2>
+                <div class="flex justify-center mt-3">
+                    <div id="offline-badge" class="hidden items-center gap-1.5 px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-bold shadow-sm">
+                        🟢 本地離線/訊號保護模式已啟用 (Offline-First Ready)
+                    </div>
+                </div>
+                <p class="text-sm text-gray-300 mt-3">
+                    買了不會煮？訊號不良？讓溫慢的客家「阿婆 AI 助手」即時指引您。即使在斷網狀態下，本地離線 RegExp 正則引擎依然為您 1 秒秒回！
+                </p>
+            </div>
+            
+            <div class="bg-white text-gray-800 rounded-3xl shadow-2xl overflow-hidden flex flex-col lg:flex-row max-w-4xl mx-auto border border-flax-gray">
+                <div class="w-full lg:w-1/3 bg-flax-gray/40 p-6 border-r border-flax-gray flex flex-col justify-between">
+                    <div>
+                        <h4 class="font-serif font-bold text-hakka-blue mb-3 flex items-center gap-2" style="color: #1c355e!important;">
+                            <span>💡</span> <span class="font-sans font-bold">常用智慧烹飪標籤</span>
+                        </h4>
+                        <p class="text-xs text-warm-dark/60 mb-4">點擊預設標籤，一鍵索取適合現代家庭的懶人與精緻食譜：</p>
+                        <div class="flex flex-wrap lg:flex-col gap-2.5">
+                            <button onclick="aiPreset('⏱️ 15分鐘科技速煮')" class="px-3.5 py-2 bg-white border border-flax-gray rounded-xl text-xs font-bold text-left hover:border-sun-amber hover:text-sun-amber hover:shadow-sm transition-all" style="color: #2e2b2a!important;">⏱️ 15分鐘科技速煮</button>
+                            <button onclick="aiPreset('👶 告別挑食！親子黃金南瓜水粉')" class="px-3.5 py-2 bg-white border border-flax-gray rounded-xl text-xs font-bold text-left hover:border-sun-amber hover:text-sun-amber hover:shadow-sm transition-all" style="color: #2e2b2a!important;">👶 親子黃金南瓜水粉</button>
+                            <button onclick="aiPreset('🌱 輕盈食安！低卡高纖鮮蔬拌')" class="px-3.5 py-2 bg-white border border-flax-gray rounded-xl text-xs font-bold text-left hover:border-sun-amber hover:text-sun-amber hover:shadow-sm transition-all" style="color: #2e2b2a!important;">🌱 低卡高纖鮮蔬拌</button>
+                            <button onclick="aiPreset('🏮 節慶辦桌！古法香菇肉絲炒水粉')" class="px-3.5 py-2 bg-white border border-flax-gray rounded-xl text-xs font-bold text-left hover:border-sun-amber hover:text-sun-amber hover:shadow-sm transition-all" style="color: #2e2b2a!important;">🏮 古法香菇肉絲炒水粉</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="w-full lg:w-2/3 flex flex-col h-[400px] bg-rice-white">
+                    <div id="chatbot-screen" class="flex-1 p-6 overflow-y-auto space-y-4">
+                        <div class="flex items-start gap-3 animate-fade-in">
+                            <div class="w-9 h-9 rounded-full bg-sun-amber flex items-center justify-center text-white text-lg font-bold flex-shrink-0">👵</div>
+                            <div class="bg-flax-gray/50 text-gray-800 text-xs sm:text-sm p-3.5 rounded-2xl rounded-tl-none max-w-[85%] border border-flax-gray/40 shadow-sm" style="color: #2e2b2a!important;">
+                                哩賀（你好）！我是尖山的客家阿婆。今天工作辛苦啦，家裡冰箱還有什麼菜？告訴我，阿婆幫你想今晚吃什麼暖心米粉！ 👵🌾
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-white border-t border-flax-gray flex gap-2">
+                        <input type="text" id="ai-input" placeholder="例如：我有高麗菜跟香菇，可以怎麼煮？" class="flex-1 px-4 py-2 border border-flax-gray rounded-xl bg-flax-gray/20 text-sm focus:outline-none focus:ring-1 focus:ring-sun-amber focus:bg-white transition-all" style="color: #2e2b2a!important;">
+                        <button onclick="handleAISubmit()" class="bg-sun-amber text-white px-5 py-2 rounded-xl text-sm font-bold hover:bg-amber-600 transition-colors">詢問阿婆</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="community-section" class="py-20 bg-rice-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs font-bold text-sun-amber tracking-widest uppercase">Social Immersion ． 情感沉浸</span>
+                <h2 class="text-3xl font-serif font-bold text-hakka-navy mt-1">客家鄰里美食日記</h2>
+                <p class="text-sm text-warm-dark/60 mt-2">
+                    我們相信，米香背後是無數家庭的笑聲。這裡不是單向的賣場，而是您分享手藝、交流日常的溫馨客庄鄰里。
+                </p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+                <div class="rounded-3xl overflow-hidden shadow-lg border border-flax-gray flex flex-col justify-between bg-white">
+                    <img src="https://images.unsplash.com/photo-1547573854-74d2a71d0826?auto=format&fit=crop&w=800&q=80" alt="大家庭溫暖餐桌聚會分享尖山手工水粉" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <span class="text-xs text-sun-amber font-bold">#大家庭的情感沉浸</span>
+                        <h4 class="font-serif font-black text-lg text-hakka-blue mt-1">餐桌上的笑聲，是最好的調味料</h4>
+                        <p class="text-xs text-warm-dark/60 mt-2">「我們不只是買米粉，而是將尖山大家庭的溫情，實體傳遞給遠在竹科辛苦工作的每一位鄰居。」</p>
+                    </div>
+                </div>
+                <div class="space-y-4 flex flex-col justify-between">
+                    <div class="bg-white border border-flax-gray rounded-3xl p-6 shadow-sm">
+                        <div class="flex justify-between items-center mb-3">
+                            <div class="flex items-center gap-2">
+                                <span class="w-8 h-8 rounded-full bg-hakka-blue/10 flex items-center justify-center text-xs font-bold text-hakka-blue">竹科</span>
+                                <strong class="text-xs">工程師小林 (新竹東區)</strong>
+                            </div>
+                            <span class="text-[9px] bg-green-100 text-green-700 font-bold px-2 py-0.5 rounded-full">已驗證買家</span>
+                        </div>
+                        <p class="text-xs text-warm-dark/80 leading-relaxed font-serif italic">
+                            「每天加班回到竹北都快十點了，以前常因高壓造成胃食道逆流嚴重。自從買了尖山手工水粉，5分鐘搞定一碗湯米粉，100%純米製造好消化、不脹氣，吃完胃暖烘烘的，終於能好好睡個覺了。」
+                        </p>
+                    </div>
+                    <div class="bg-white border border-flax-gray rounded-3xl p-6 shadow-sm">
+                        <div class="flex justify-between items-center mb-3">
+                            <div class="flex items-center gap-2">
+                                <span class="w-8 h-8 rounded-full bg-sun-amber/10 flex items-center justify-center text-xs font-bold text-sun-amber">雙寶</span>
+                                <strong class="text-xs">雙寶媽咪 Amy (苗栗頭份)</strong>
+                            </div>
+                            <span class="text-[9px] bg-green-100 text-green-700 font-bold px-2 py-0.5 rounded-full">已驗證買家</span>
+                        </div>
+                        <p class="text-xs text-warm-dark/80 leading-relaxed font-serif italic">
+                            「兒子平時極度挑食。阿婆推薦的南瓜純米水粉真的神！純米水粉在烹煮過程中完美吸飽了香甜的南瓜金黃湯汁，孩子主動整盤吃光。純手工日曬無化學添加，媽媽給得超放心。」
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 p-8 bg-flax-gray/40 border border-flax-gray rounded-3xl text-center max-w-2xl mx-auto space-y-4">
+                <h4 class="font-serif font-bold text-lg text-hakka-blue">📸 分享您的「暖心米粉日記」</h4>
+                <p class="text-xs text-warm-dark/70">上傳您的米粉料理照片與文字分享，審核通過即可獲得 <span class="text-sun-amber font-bold">NT$ 50 元回購專屬折價券</span>！</p>
+                <button onclick="openMockShareModal()" class="bg-hakka-blue text-white text-xs px-6 py-3 rounded-xl font-bold hover:bg-opacity-95 transition-all">
+                    上傳我的米粉美食日記
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="product-grid" class="py-20 bg-gradient-to-b from-rice-white to-flax-gray/30 border-t border-flax-gray/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs font-bold text-sun-amber tracking-widest uppercase">Frictionless Shop ． 減阻選購</span>
+                <h2 class="text-3xl font-serif font-bold text-hakka-navy mt-1">選購暖心伴手</h2>
+                <p class="text-sm text-warm-dark/60 mt-2">我們提供極簡的一頁式訪客購買服務。無需註冊會員即可下單，保障您的時間與精力成本。</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 space-y-6">
+                    <h3 class="font-serif font-bold text-xl text-hakka-blue border-b border-flax-gray pb-2">季節限量商品</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white border border-flax-gray rounded-3xl p-6 flex flex-col justify-between shadow-sm relative group border-2 hover:border-sun-amber transition-colors">
+                            <span class="absolute top-4 right-4 bg-sun-amber text-white text-[10px] font-black px-2.5 py-1 rounded">暢銷推薦</span>
+                            <div class="h-44 bg-flax-gray/50 rounded-2xl mb-4 flex items-center justify-center text-7xl group-hover:scale-105 transition-transform duration-300">🥣</div>
+                            <div>
+                                <h4 class="font-serif font-black text-lg text-hakka-blue">小家庭週末暖心組 (5包入)</h4>
+                                <p class="text-xs text-warm-dark/60 mt-1 h-12 overflow-hidden">適合 3-4 人家庭週末溫飽。採用純天然九降風慢乾手工水粉，無任何化學澱粉添加。</p>
+                                <div class="flex justify-between items-center mt-4">
+                                    <span class="text-xl font-bold text-sun-amber">NT$ 450</span>
+                                    <span class="text-xs text-warm-dark/40 line-through">NT$ 500</span>
+                                </div>
+                            </div>
+                            <button onclick="addToCart('p1', '小家庭週末暖心組', 450)" class="mt-4 w-full bg-hakka-blue hover:bg-opacity-95 text-white py-2.5 rounded-xl text-xs font-bold transition-all shadow-md">
+                                🛒 放入購物車
+                            </button>
+                        </div>
+                        <div class="bg-white border border-flax-gray rounded-3xl p-6 flex flex-col justify-between shadow-sm relative group border-2 hover:border-sun-amber transition-colors">
+                            <div class="h-44 bg-flax-gray/50 rounded-2xl mb-4 flex items-center justify-center text-7xl group-hover:scale-105 transition-transform duration-300">🎁</div>
+                            <div>
+                                <h4 class="font-serif font-black text-lg text-hakka-blue">四月八節慶祈福精品禮盒</h4>
+                                <p class="text-xs text-warm-dark/60 mt-1 h-12 overflow-hidden">限量文創。包裝印有永貞宮平安符意象與尖山老街水域畫卷，高雅體面，是送禮首選。</p>
+                                <div class="flex justify-between items-center mt-4">
+                                    <span class="text-xl font-bold text-sun-amber">NT$ 880</span>
+                                </div>
+                            </div>
+                            <button onclick="addToCart('p2', '四月八節慶祈福精品禮盒', 880)" class="mt-4 w-full bg-hakka-blue hover:bg-opacity-95 text-white py-2.5 rounded-xl text-xs font-bold transition-all shadow-md">
+                                🛒 放入購物車
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white text-warm-dark border border-flax-gray rounded-3xl p-6 shadow-md" id="checkout-section">
+                    <h3 class="font-serif font-bold text-xl text-hakka-blue border-b border-flax-gray pb-3 mb-4">🛒 一頁式極速結帳</h3>
+                    <div id="cart-items" class="space-y-3 mb-6">
+                        <p class="text-xs text-warm-dark/40 text-center py-6">購物車內尚未加入米粉...</p>
+                    </div>
+                    
+                    <div id="shipping-progress-container" class="hidden mb-6">
+                        <div class="flex justify-between text-[11px] text-warm-dark/80 font-bold mb-1">
+                            <span id="shipping-progress-desc">距離免運門檻還差 NT$ 1,000</span>
+                            <span id="shipping-progress-percent">0%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 h-2.5 rounded-full overflow-hidden">
+                            <div id="shipping-progress-bar" class="bg-gradient-to-r from-sun-amber to-amber-500 h-full rounded-full transition-all duration-300" style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <div class="bg-flax-gray/40 border border-flax-gray rounded-2xl p-4 space-y-3 mb-6">
+                        <h4 class="text-xs font-bold text-hakka-blue flex items-center gap-1.5"><span>🔮</span> AI 預測性週期回購設定</h4>
+                        <p class="text-[10px] text-warm-dark/60 leading-relaxed">輸入您的家庭常住人數，AI將預估米粉消耗進度，快吃完時會透過LINE提醒您一鍵續購：</p>
+                        <div class="grid grid-cols-2 gap-2 pt-1">
+                            <div>
+                                <label class="block text-[10px] text-warm-dark/60 mb-0.5">常住用餐人數</label>
+                                <select id="repurchase-people" class="w-full bg-white border border-flax-gray rounded-lg p-1.5 text-xs text-warm-dark focus:outline-none" onchange="calculateRepurchaseForecast()">
+                                    <option value="1">單身貴族 (1人)</option>
+                                    <option value="2">雙人甜蜜 (2人)</option>
+                                    <option value="3" selected>溫馨家庭 (3人)</option>
+                                    <option value="4">熱鬧大家庭 (4人以上)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-[10px] text-warm-dark/60 mb-0.5">預期補貨提醒</label>
+                                <select id="repurchase-reminder" class="w-full bg-white border border-flax-gray rounded-lg p-1.5 text-xs text-warm-dark focus:outline-none">
+                                    <option value="line" selected>🔔 LINE 溫慢提醒</option>
+                                    <option value="sms">📱 簡訊通知</option>
+                                    <option value="none">❌ 不需要提醒</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="repurchase-feedback" class="text-[10px] text-sun-amber font-semibold mt-1"></div>
+                    </div>
+
+                    <form onsubmit="processGuestCheckout(event)" class="space-y-4">
+                        <h4 class="text-xs font-bold text-hakka-blue border-b border-flax-gray pb-1 mb-2">1. 收件與發票資料</h4>
+                        <div>
+                            <label class="block text-[10px] font-bold text-warm-dark/70 mb-0.5">收件人姓名 *</label>
+                            <input type="text" id="cust-name" required placeholder="例：林志豪" class="w-full px-3 py-1.5 text-xs border border-flax-gray rounded-lg bg-rice-white focus:ring-1 focus:ring-sun-amber outline-none">
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <div>
+                                <label class="block text-[10px] font-bold text-warm-dark/70 mb-0.5">聯絡電話 *</label>
+                                <input type="tel" id="cust-phone" required placeholder="例：0912345678" class="w-full px-3 py-1.5 text-xs border border-flax-gray rounded-lg bg-rice-white focus:ring-1 focus:ring-sun-amber outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold text-warm-dark/70 mb-0.5">電子信箱 *</label>
+                                <input type="email" id="cust-email" required placeholder="example@gmail.com" class="w-full px-3 py-1.5 text-xs border border-flax-gray rounded-lg bg-rice-white focus:ring-1 focus:ring-sun-amber outline-none">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-bold text-warm-dark/70 mb-0.5">收件地址 *</label>
+                            <input type="text" id="cust-address" required placeholder="例：苗栗縣頭份市永貞路一段XX號" class="w-full px-3 py-1.5 text-xs border border-flax-gray rounded-lg bg-rice-white focus:ring-1 focus:ring-sun-amber outline-none">
+                        </div>
+
+                        <div>
+                            <label class="block text-[10px] font-bold text-warm-dark/70 mb-0.5">發票開立方式 *</label>
+                            <select id="invoice-type" class="w-full px-3 py-1.5 text-xs border border-flax-gray rounded-lg bg-rice-white focus:ring-1 focus:ring-sun-amber outline-none" onchange="toggleInvoiceFields()">
+                                <option value="cloud">雲端發票 (捐贈/載具)</option>
+                                <option value="mobile">手機條碼載具</option>
+                                <option value="company">三聯式發票 (公司統編)</option>
+                            </select>
+                        </div>
+                        <div id="invoice-mobile-field" class="hidden">
+                            <label class="block text-[10px] font-bold text-warm-dark/70 mb-0.5">手機條碼 (需以 / 開頭) *</label>
+                            <input type="text" id="inv-mobile" placeholder="/ABC1234" class="w-full px-3 py-1.5 text-xs border border-flax-gray rounded-lg bg-rice-white focus:ring-1 focus:ring-sun-amber outline-none">
+                        </div>
+                        <div id="invoice-company-field" class="hidden grid grid-cols-2 gap-2">
+                            <div>
+                                <label class="block text-[10px] font-bold text-warm-dark/70 mb-0.5">公司統一編號 *</label>
+                                <input type="text" id="inv-tax-id" placeholder="8位數字" maxlength="8" class="w-full px-3 py-1.5 text-xs border border-flax-gray rounded-lg bg-rice-white focus:ring-1 focus:ring-sun-amber outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold text-warm-dark/70 mb-0.5">公司抬頭 *</label>
+                                <input type="text" id="inv-company-title" placeholder="例：創生股份有限公司" class="w-full px-3 py-1.5 text-xs border border-flax-gray rounded-lg bg-rice-white focus:ring-1 focus:ring-sun-amber outline-none">
+                            </div>
+                        </div>
+
+                        <h4 class="text-xs font-bold text-hakka-blue border-b border-flax-gray pb-1 pt-2 mb-2">2. 付款方式</h4>
+                        <div class="grid grid-cols-3 gap-2">
+                            <label class="border border-flax-gray rounded-lg p-2.5 flex flex-col items-center justify-center gap-1 cursor-pointer bg-white" onclick="selectPayment('credit')">
+                                <input type="radio" name="pay-method" value="credit" checked class="scale-75">
+                                <span class="text-[10px] font-bold text-warm-dark">💳 信用卡/金融卡</span>
+                            </label>
+                            <label class="border border-flax-gray rounded-lg p-2.5 flex flex-col items-center justify-center gap-1 cursor-pointer bg-white" onclick="selectPayment('line')">
+                                <input type="radio" name="pay-method" value="line" class="scale-75">
+                                <span class="text-[10px] font-bold text-[#06C755]">💚 LINE Pay</span>
+                            </label>
+                            <label class="border border-flax-gray rounded-lg p-2.5 flex flex-col items-center justify-center gap-1 cursor-pointer bg-white" onclick="selectPayment('cod')">
+                                <input type="radio" name="pay-method" value="cod" class="scale-75">
+                                <span class="text-[10px] font-bold text-warm-dark">📦 貨到付款</span>
+                            </label>
+                        </div>
+
+                        <div id="credit-card-panel" class="bg-flax-gray/30 p-4 rounded-2xl border border-flax-gray/50 space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-[10px] font-bold text-warm-dark/60">支援：VISA / Mastercard / JCB / UnionPay</span>
+                                <div class="flex gap-1 text-base">
+                                    <span>💳</span><span>🇺</span><span>🇯</span>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-[9px] font-bold text-warm-dark/60 mb-0.5">卡片號碼 *</label>
+                                <input type="text" id="cc-number" placeholder="4111 1111 1111 1111" class="w-full px-3 py-1.5 text-xs border border-flax-gray rounded-lg bg-white outline-none font-mono">
+                            </div>
+                            <div class="grid grid-cols-2 gap-2">
+                                <div>
+                                    <label class="block text-[9px] font-bold text-warm-dark/60 mb-0.5">有效期限 *</label>
+                                    <input type="text" id="cc-expiry" placeholder="MM/YY" maxlength="5" class="w-full px-3 py-1.5 text-xs border border-flax-gray rounded-lg bg-white outline-none font-mono">
+                                </div>
+                                <div>
+                                    <label class="block text-[9px] font-bold text-warm-dark/60 mb-0.5">安全碼 (CVC/CVV) *</label>
+                                    <input type="password" id="cc-cvv" placeholder="123" maxlength="3" class="w-full px-3 py-1.5 text-xs border border-flax-gray rounded-lg bg-white outline-none font-mono">
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full bg-sun-amber hover:bg-amber-600 text-white font-bold py-3 rounded-xl text-xs sm:text-sm mt-4 shadow transition-colors" onclick="trackClick('submit_frictionless_order')">
+                            🔒 訪客一鍵安全結帳
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="o2o-section" class="py-20 bg-hakka-navy text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="w-full lg:w-1/2 space-y-6">
+                    <span class="text-xs font-bold text-sun-amber tracking-widest uppercase">Offline to Online ． 體驗整合</span>
+                    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white tracking-tight">
+                        四月八靚燈好客節：<br>
+                        「暖心祈福」限量預約制微體驗
+                    </h2>
+                    <p class="text-sm text-gray-300 leading-relaxed">
+                        在熱鬧擁擠的「四月八」節慶期間，我們反對走馬看花。為了保障文化深度，我們首度推出「電子商務 O2O 限量名額預約體驗」，帶領科技新貴與家庭走入最真實的客庄。
+                    </p>
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start gap-3">
+                            <span class="text-lg">🏮</span>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">永貞宮庄神前祈福</h4>
+                                <p class="text-xs text-gray-400">專人微導覽，講述媽祖迎神賽會與花燈對抗的熱鬧歷史。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-lg">🥣</span>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">松茂米粉老店 手作曬米粉體驗</h4>
+                                <p class="text-xs text-gray-400">帶孩子一同戴上斗笠，體驗傳統手作，觸摸大自然九降風慢乾的溫度。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2 grid grid-cols-1 gap-6">
+                    <div class="rounded-3xl overflow-hidden shadow-xl border border-white/10 h-48 relative">
+                        <img src="https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?auto=format&fit=crop&w=800&q=80" alt="頭份四月八靚燈好客節老街文化氛圍" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <span class="text-white text-lg font-serif tracking-widest font-black">四月八靚燈好客節現場 🏮</span>
+                        </div>
+                    </div>
+                    <div class="bg-white text-warm-dark rounded-3xl p-6 sm:p-8 shadow-2xl border border-flax-gray">
+                        <form onsubmit="processO2OForm(event)" class="space-y-4">
+                            <div class="grid grid-cols-2 gap-3">
+                                <div>
+                                    <label class="block text-[10px] font-bold text-warm-dark/70 mb-1">聯絡人姓名 *</label>
+                                    <input type="text" id="o2o-name" required placeholder="例：張陳基" class="w-full px-3 py-2 text-xs border border-flax-gray rounded-lg bg-flax-gray/10 focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-bold text-warm-dark/70 mb-1">聯絡電話 *</label>
+                                    <input type="tel" id="o2o-phone" required placeholder="例：0987-654321" class="w-full px-3 py-2 text-xs border border-flax-gray rounded-lg bg-flax-gray/10 focus:outline-none">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold text-warm-dark/70 mb-1">預約梯次 *</label>
+                                <select id="o2o-session" class="w-full px-3 py-2 text-xs border border-flax-gray rounded-lg bg-flax-gray/10 focus:outline-none">
+                                    <option value="batch1">第一梯次 (農曆四月八日 上午 09:30) - 餘 4 名</option>
+                                    <option value="batch2">第二梯次 (農曆四月八日 下午 14:00) - 餘 2 名</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="w-full bg-hakka-blue hover:bg-opacity-95 text-white font-bold py-3 rounded-xl text-xs sm:text-sm mt-2 transition-all shadow-md">
+                                🏮 提交 O2O 文化預約
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-serif font-bold text-hakka-navy text-center mb-10">常見解答與文化小知識</h2>
+            <div class="space-y-4" id="faq-wrapper"></div>
+        </div>
+    </section>
+
+    <footer class="bg-hakka-navy text-white/70 py-16 text-xs sm:text-sm border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+            <div>
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="text-2xl">🌾</span>
+                    <span class="font-serif font-black text-lg text-white tracking-widest">頭份尖山米粉</span>
+                </div>
+                <p class="leading-relaxed text-white/50 max-w-xs">
+                    苗栗縣頭份市地方創生專案，致力於將百年客家水粉工藝與智慧推薦系統相結合，創造溫馨無礙的電子商務體驗。
+                </p>
+            </div>
+            <div>
+                <h4 class="font-bold text-white mb-4 tracking-wider text-sm">地方永續資訊</h4>
+                <ul class="space-y-2 text-white/50">
+                    <li>文化資產編號：苗栗有形文化再造案第09組</li>
+                    <li>實體場域：苗栗縣頭份市尖山大橋南側</li>
+                    <li>指導單位：國立聯合大學 數位行銷學系</li>
+                    <li>指導教授：張陳基 教授</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-white mb-4 tracking-wider text-sm">數據監控與追蹤證明</h4>
+                <p class="leading-relaxed text-white/50 mb-3">
+                    本網站已全面埋設 Google Analytics 4 (GA4) 自訂事件追蹤。
+                </p>
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 rounded-full text-xs font-bold text-white">
+                    <span class="w-2 h-2 rounded-full bg-green-400"></span> GA4 即時遙測運作中
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-white/5 pt-8 text-center text-white/40">
+            <p>&copy; 2026 苗栗頭份尖山米粉電商專案. All rights reserved. 僅供 PBL 課程學習示範使用。</p>
+        </div>
+    </footer>
+
+    <div id="exit-intent-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-white text-warm-dark rounded-3xl p-6 sm:p-8 max-w-md w-full border border-flax-gray shadow-2xl relative transform scale-95 transition-transform duration-300">
+            <button onclick="closeExitIntentModal()" class="absolute top-4 right-4 text-warm-dark/40 hover:text-warm-dark text-xl font-bold">&times;</button>
+            <div class="text-center space-y-4">
+                <span class="text-5xl">👵</span>
+                <h3 class="font-serif font-black text-xl text-hakka-blue">等一等啊，細人（孩子）！</h3>
+                <p class="text-xs text-warm-dark/80 leading-relaxed">
+                    阿婆看您挑選了「尖山手工純米水粉」，真的不帶一包回去嗎？<br>
+                    這款純米水粉好消化、不易脹氣，最適合在您加班疲憊時溫慢安撫您的胃。現在下單，阿婆特別為您套用 <strong class="text-sun-amber font-bold">NT$ 50 元</strong> 體驗折價！
+                </p>
+                <div class="bg-flax-gray/40 border border-flax-gray rounded-2xl p-3 text-xs font-black text-hakka-blue flex items-center justify-between">
+                    <span>🎁 優惠代碼：WARM50</span>
+                    <button onclick="applyExitCoupon()" class="bg-sun-amber text-white px-3 py-1 rounded-lg text-[10px] hover:bg-amber-600">一鍵套用</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="thank-you-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-rice-white text-warm-dark rounded-3xl p-6 sm:p-8 max-w-lg w-full border border-flax-gray shadow-2xl relative transform scale-95 transition-transform duration-300">
+            <div class="text-center space-y-5">
+                <span class="text-5xl">🎉</span>
+                <h3 class="font-serif font-black text-2xl text-hakka-blue">您的暖心訂單已送出！</h3>
+                <div class="bg-white border border-flax-gray rounded-2xl p-4 text-left text-xs space-y-2">
+                    <p class="font-bold text-hakka-blue">📋 AI 消耗量與回購週期評估：</p>
+                    <p id="ty-forecast" class="text-warm-dark/80"></p>
+                    <p class="text-sun-amber font-semibold">我們將在預測日前 7 天，透過 LINE 提醒您一鍵續購，安心美味不中斷！</p>
+                </div>
+                <div class="bg-sun-amber/5 border border-sun-amber/20 rounded-2xl p-5 text-left space-y-3">
+                    <h4 class="text-xs font-bold text-hakka-blue flex items-center gap-1"><span>🎁</span> 順手啟用「一鍵訂單追蹤與保障」</h4>
+                    <p class="text-[10px] text-warm-dark/60 leading-relaxed">
+                        您已成功完成訪客結帳。現在，只需為此 Email 設定一個密碼，即可直接生成會員帳號，下筆訂單還可直接折抵 <strong class="text-sun-amber font-bold">NT$ 50 元</strong>：
+                    </p>
+                    <div class="flex gap-2">
+                        <input type="password" id="post-reg-password" placeholder="請設定您的登入密碼" class="flex-1 px-3 py-1.5 text-xs border border-flax-gray rounded-lg bg-white">
+                        <button onclick="submitPostRegister()" class="bg-sun-amber text-white px-4 py-1.5 rounded-lg text-xs font-bold hover:bg-amber-600 transition-all">建立帳戶</button>
+                    </div>
+                </div>
+                <button onclick="closeThankYouModal()" class="w-full bg-hakka-blue hover:bg-opacity-95 text-white font-bold py-3 rounded-xl text-xs sm:text-sm">
+                    好，我知道了！
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="share-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-white text-warm-dark rounded-3xl p-6 sm:p-8 max-w-md w-full border border-flax-gray shadow-2xl relative transform scale-95 transition-transform duration-300">
+            <button onclick="closeShareModal()" class="absolute top-4 right-4 text-warm-dark/40 hover:text-warm-dark text-xl font-bold">&times;</button>
+            <h3 class="font-serif font-black text-lg text-hakka-blue mb-4">✍️ 分享您的美食日記</h3>
+            <form onsubmit="submitMockShare(event)" class="space-y-4">
+                <div>
+                    <label class="block text-[10px] font-bold text-warm-dark/70 mb-1">您的暱稱 *</label>
+                    <input type="text" id="share-name" required placeholder="例如：頭份阿志" class="w-full px-3 py-1.5 text-xs border border-flax-gray rounded-lg bg-flax-gray/10">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-bold text-warm-dark/70 mb-1">您在哪個城市煮米粉？ *</label>
+                    <input type="text" id="share-city" required placeholder="例如：新竹竹北市" class="w-full px-3 py-1.5 text-xs border border-flax-gray rounded-lg bg-flax-gray/10">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-bold text-warm-dark/70 mb-1">您的溫馨米粉故事 (200字以內) *</label>
+                    <textarea id="share-content" required rows="4" placeholder="今天為誰煮了這碗米粉？吃完之後的心情如何？" class="w-full px-3 py-1.5 text-xs border border-flax-gray rounded-lg bg-flax-gray/10" style="resize:none;"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-sun-amber hover:bg-amber-600 text-white font-bold py-2.5 rounded-xl text-xs shadow-md">
+                    🚀 送出審核並領取 50 元優惠券
+                </button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
